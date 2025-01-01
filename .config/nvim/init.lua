@@ -30,10 +30,12 @@ vim.cmd("highlight Normal guifg=#ffffff") -- Text color
 vim.cmd("highlight @punctuation.bracket guifg=#93aac9") -- {, {%, }
 vim.cmd("highlight @tag.attribute guifg=#e67e80") -- id, class
 vim.cmd("highlight Underlined guifg=LightBlue") -- <a> tag names
-vim.cmd("highlight Special guifg=#98A3C8") -- html tag colors
-vim.cmd("highlight @variable.python guifg=#dddddd") -- html tag colors
-
+vim.cmd("highlight Special guifg=#98A3C8") -- html tag
+vim.cmd("highlight @variable.python guifg=#dddddd") -- python variable
+vim.cmd("highlight @variable.go guifg=#dddddd") -- go variable
 
 vim.cmd("highlight CursorLine guibg=#25282f")
 vim.cmd("highlight CursorLineNr guifg=#eeeeee")
 vim.cmd(string.format("highlight Whitespace guifg=%s", "#3f3f3f"))
+
+vim.cmd("highlight GitSignsStagedAdd guifg=green") -- Brighter than default green
