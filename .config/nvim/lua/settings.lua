@@ -55,6 +55,18 @@ vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.diagnostic.config({
+	jump = { float = true },
+	signs = {
+		text = {
+			-- [vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.ERROR] = "x",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "󰌵",
+		},
+	},
+})
 
 local white = "#eeeeee"
 local orange = "#e0906c"
