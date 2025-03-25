@@ -36,11 +36,15 @@ return {
 			map.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 			opts.desc = "Go to previous diagnostic"
-			map.set("n", "gk", vim.diagnostic.goto_prev, opts)
+			map.set("n", "gk", function()
+				vim.diagnostic.jump({ count = -1 })
+			end, opts)
 
 			opts.desc = "Go to next diagnostic"
-			map.set("n", "gj", vim.diagnostic.goto_next, opts)
-
+			map.set("n", "gj", function()
+				vim.diagnostic.jump({ count = 1 })
+			end, opts)
+	
 			opts.desc = "Go to definition"
 			map.set("n", "gd", vim.lsp.buf.definition, opts)
 
@@ -52,12 +56,6 @@ return {
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
 
 		-- LSP setup
 
