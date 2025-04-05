@@ -8,5 +8,5 @@ alias gl='git log'
 alias glp='git log -p'
 alias gd='git diff'
 alias gds='git diff --staged'
-
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+alias gb='git branch'
+alias gc='git commit'
