@@ -62,7 +62,8 @@ if [ "$color_prompt" = yes ]; then
         #PS1='\[\033[01;33m\]\w\[\033[00m\]\$ '
     #     PS1='\[\e[0;1;3;38;01;34m\]\u@\h\w \[\e[0;36m\]$ \[\e[0m\]'
     # else
-        PS1='\[\e[0;1;3;38;01;34m\]\w \[\e[0;36m\]$ \[\e[0m\]'
+        PS1='\[\e[0;1;3;38;01;34m\]\w\[\e[91m\]$(__git_ps1) \[\e[0;36m\]$ \[\e[0m\]'
+
     # fi
 fi
 unset color_prompt force_color_prompt
