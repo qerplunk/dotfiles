@@ -57,6 +57,7 @@ return {
 			{ "<leader>f", group = "File" },
 			{ "<leader>ff", group = "Telescope File Browser" },
 			{ "<leader>fg", desc = "Grep find" },
+			{ "<leader>fG", desc = "Grep find cwd" },
 			{ "<leader>fn", desc = "New file" },
 			{ "<leader>fr", desc = "Find recent file" },
 			{ "<leader>fs", desc = "Save file" },
