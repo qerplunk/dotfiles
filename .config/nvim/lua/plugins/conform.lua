@@ -8,6 +8,7 @@ return {
 			formatters_by_ft = {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				go = { "gofmt" },
 				python = { "black" },
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
