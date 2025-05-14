@@ -25,7 +25,7 @@ require("lazy").setup("plugins", opts)
 
 vim.cmd("colorscheme kanagawa-dragon")
 
--- vim.cmd("highlight Normal guifg=#eeeeee") -- Text color
+vim.cmd("highlight Normal guibg=#101010") -- Background color
 vim.cmd("highlight Normal guifg=#ffffff") -- Text color
 vim.cmd("highlight @punctuation.bracket guifg=#93aac9") -- {, {%, }
 vim.cmd("highlight @tag.attribute guifg=#e67e80") -- id, class
@@ -38,4 +38,8 @@ vim.cmd("highlight CursorLine guibg=#25282f")
 vim.cmd("highlight CursorLineNr guifg=#eeeeee")
 vim.cmd(string.format("highlight Whitespace guifg=%s", "#3f3f3f"))
 
-vim.cmd("highlight GitSignsStagedAdd guifg=green") -- Brighter than default green
+vim.cmd("highlight GitSignsStagedAdd guifg=green")
+
+vim.cmd("highlight NormalFloat guibg=#202020")
+vim.cmd("highlight FloatBorder guifg=white guibg=#202020")
+vim.cmd("highlight DiagnosticUnderlineError guifg=#f05050")
