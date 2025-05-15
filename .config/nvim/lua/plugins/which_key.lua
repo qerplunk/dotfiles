@@ -54,8 +54,11 @@ return {
 			{ "<leader>e", group = "Nvim Tree" },
 			{ "<leader>e", desc = "Nvim Tree" },
 
+			{ "<leader>F", group = "File browser" },
+			{ "<leader>F", group = "Telescope File Browser" },
+
 			{ "<leader>f", group = "File" },
-			{ "<leader>ff", group = "Telescope File Browser" },
+			{ "<leader>ff", desc = "Grep find no preview" },
 			{ "<leader>fg", desc = "Grep find" },
 			{ "<leader>fG", desc = "Grep find cwd" },
 			{ "<leader>fn", desc = "New file" },
