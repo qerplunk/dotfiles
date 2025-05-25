@@ -44,7 +44,7 @@ return {
 			map.set("n", "gj", function()
 				vim.diagnostic.jump({ count = 1 })
 			end, opts)
-	
+
 			opts.desc = "Go to definition"
 			map.set("n", "gd", vim.lsp.buf.definition, opts)
 
@@ -52,7 +52,11 @@ return {
 			map.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 			opts.desc = "Shsw documentation under cursor"
-			map.set("n", "K", vim.lsp.buf.hover, opts)
+			map.set("n", "K", function()
+				vim.lsp.buf.hover({
+					border = "single",
+				})
+			end, opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -84,12 +88,7 @@ return {
 			},
 		})
 
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["jdtls"].setup({
+		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
