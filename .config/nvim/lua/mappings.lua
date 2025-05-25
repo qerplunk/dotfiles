@@ -61,9 +61,8 @@ map.set(
 	"<cmd> lua require('telescope.builtin').find_files( { cwd = vim.fn.expand('%:p:h') }) <cr>",
 	opts
 ) -- telescope find file in curr file dir
-map.set("n", "<leader>F", "<cmd> Telescope file_browser hidden=true path=%:p:h <cr>", opts) -- find file using file_browser from current file dir
-map.set("n", "<leader>ff", "<cmd> Telescope live_grep previewer=false <cr>", opts) -- grep no previewer
 map.set("n", "<leader>fg", "<cmd> Telescope live_grep <cr>", opts) -- grep string
+map.set("n", "<leader>ff", "<cmd> Telescope live_grep previewer=false <cr>", opts) -- grep no previewer
 map.set(
 	"n",
 	"<leader>fG",
@@ -76,7 +75,8 @@ map.set("n", "<leader>/", "<cmd> Telescope git_files <cr>", opts) -- find recent
 
 -- NVIM TREE
 
-map.set("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", opts) -- toggle nvim tree
+map.set("n", "<leader>e", "<cmd> Neotree toggle <cr>", opts) -- toggle neo tree
+map.set("n", "<leader>E", "<cmd> Neotree position=current <cr>", opts) -- toggle neo tree netrw
 
 ---- BUFFERS
 map.set("n", "<leader>bk", function()

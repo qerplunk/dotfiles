@@ -10,7 +10,7 @@ return {
 		wk.setup({
 			preset = "classic",
 			win = {
-				border = "rounded"
+				border = "single",
 			},
 			filter = function(mapping)
 				-- exclude mappings without a description
@@ -29,10 +29,10 @@ return {
 
 			{ "<leader>a", group = "Harpoon" },
 			{ "<leader>aa", desc = "Add file" },
-			{ "<leader>ah", desc = "File 1" },
-			{ "<leader>aj", desc = "File 2" },
-			{ "<leader>ak", desc = "File 3" },
-			{ "<leader>al", desc = "File 4" },
+			{ "<leader>aj", desc = "File 1" },
+			{ "<leader>ak", desc = "File 2" },
+			{ "<leader>al", desc = "File 3" },
+			{ "<leader>a;", desc = "File 4" },
 			{ "<leader>am", desc = "Menu" },
 			{ "<leader>an", desc = "Next" },
 			{ "<leader>ap", desc = "Previous" },
@@ -51,11 +51,11 @@ return {
 			{ "<leader>d", desc = "Line diagnostics" },
 			{ "<leader>D", desc = "File diagnostics" },
 
-			{ "<leader>e", group = "Nvim Tree" },
-			{ "<leader>e", desc = "Nvim Tree" },
+			{ "<leader>e", group = "Neo Tree" },
+			{ "<leader>e", desc = "Neo Tree" },
 
-			{ "<leader>F", group = "File browser" },
-			{ "<leader>F", group = "Telescope File Browser" },
+			{ "<leader>E", group = "Neo Tree Netrw" },
+			{ "<leader>E", desc = "Neo Tree Netwr" },
 
 			{ "<leader>f", group = "File" },
 			{ "<leader>ff", desc = "Grep find no preview" },
