@@ -12,6 +12,9 @@ return {
 			mappings = {
 				["/"] = "noop",
 				["F"] = "fuzzy_finder",
+				["w"] = "noop",
+				["b"] = "noop",
+				["e"] = "rename_basename",
 			},
 		},
 		filesystem = {
@@ -26,4 +29,3 @@ return {
 		},
 	},
 }
-
