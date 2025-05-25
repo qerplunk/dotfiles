@@ -7,6 +7,8 @@ return {
 		local lualine = require("lualine")
 		local theme = require("lualine.themes.iceberg_dark")
 		theme.normal.c.bg = "#262626"
+		theme.normal.c.bg = "#262626"
+		theme.inactive.c.bg = "#1a1a1a"
 
 		lualine.setup({
 			options = {

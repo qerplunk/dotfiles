@@ -36,7 +36,7 @@ vim.cmd("highlight @variable.go guifg=#dddddd") -- go variable
 
 vim.cmd("highlight CursorLine guibg=#25282f")
 vim.cmd("highlight CursorLineNr guifg=#eeeeee")
-vim.cmd(string.format("highlight Whitespace guifg=%s", "#3f3f3f"))
+vim.cmd("highlight Whitespace guifg=#3f3f3f")
 
 vim.cmd("highlight GitSignsStagedAdd guifg=green")
 

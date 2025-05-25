@@ -9,6 +9,7 @@ return {
 				"css",
 				"c",
 				"cpp",
+				"go",
 				"lua",
 				"rust",
 				"python",

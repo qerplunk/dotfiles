@@ -8,7 +8,7 @@ vim.opt.cmdheight = 1
 
 vim.opt.fixendofline = false
 
-vim.opt.clipboard = "" -- "unnamedplus" slow on WSL
+vim.opt.clipboard = "unnamedplus" -- "unnamedplus" might be slow on WSL
 
 vim.opt.list = true
 local space = " "
@@ -57,6 +57,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.diagnostic.config({
 	jump = { float = true },
+	float = {
+		focusable = true,
+		border = "single",
+	},
 	signs = {
 		text = {
 			-- [vim.diagnostic.severity.ERROR] = "",

@@ -11,11 +11,13 @@ return {
 
 			mason.setup()
 			mason_lsp.setup({
+				automatic_enable = false,
 				ensure_installed = {
 					"ts_ls",
 					"clangd",
 					"rust_analyzer",
 					"tailwindcss",
+					"gopls",
 					"pyright",
 					"lua_ls",
 					"eslint@4.8.0",
@@ -29,13 +31,13 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason.nvim",
-			"nvimtools/none-ls.nvim",
 		},
 		config = function()
 			require("mason-null-ls").setup({
 				ensure_installed = {
 					"stylua",
 					"prettierd",
+					"black",
 				},
 			})
 		end,

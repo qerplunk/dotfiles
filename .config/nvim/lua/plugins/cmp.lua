@@ -64,20 +64,6 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
-					-- {
-					-- 	name = "html-css",
-					-- 	option = {
-					-- 		enable_on = {
-					-- 			"html",
-					-- 		},
-					-- 		file_extensions = { "css", "sass", "less" }, -- set the local filetypes from which you want to derive classes
-					-- 		style_sheets = {
-					-- 			-- example of remote styles, only css no js for now
-					-- 			-- "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
-					-- 			-- "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
-					-- 		},
-					-- 	},
-					-- },
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
@@ -95,14 +81,4 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"Jezda1337/nvim-html-css",
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		require("html-css"):setup()
-	-- 	end,
-	-- },
 }
