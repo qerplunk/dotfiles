@@ -69,7 +69,7 @@ map.set(
 	"<cmd> lua require('telescope.builtin').live_grep( { cwd = vim.fn.expand('%:p:h')} ) <cr>",
 	opts
 ) -- grep string in cwd
-map.set("n", "<leader>fr", "<cmd> Telescope oldfiles <cr>", opts) -- find recent file
+map.set("n", "<leader>bg", "<cmd> Telescope current_buffer_fuzzy_find <cr>", opts) -- grep string in current file
 map.set("n", "<leader>fr", "<cmd> Telescope oldfiles <cr>", opts) -- find recent file
 map.set("n", "<leader>/", "<cmd> Telescope git_files <cr>", opts) -- find recent file
 

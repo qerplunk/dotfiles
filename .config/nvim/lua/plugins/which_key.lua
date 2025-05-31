@@ -40,6 +40,7 @@ return {
 			{ "<leader>b", group = "Buffer" },
 			{ "<leader>bb", desc = "Go to recent buffer" },
 			{ "<leader>bf", desc = "Format buffer" },
+			{ "<leader>bg", desc = "Grep current buffer" },
 			{ "<leader>bk", desc = "Delete current buffer" },
 			{ "<leader>bn", desc = "Next buffer" },
 			{ "<leader>bp", desc = "Previous buffer" },
