@@ -12,9 +12,6 @@ return {
 			mappings = {
 				["/"] = "noop",
 				["F"] = "fuzzy_finder",
-				["w"] = "noop",
-				["b"] = "noop",
-				["e"] = "rename_basename",
 			},
 		},
 		filesystem = {
@@ -22,8 +19,15 @@ return {
 				hide_dotfiles = false,
 			},
 			window = {
+				fuzzy_finder_mappings = {
+					["<C-j>"] = "move_cursor_down",
+					["<C-k>"] = "move_cursor_up",
+				},
 				mappings = {
-					["l"] = "open",
+					["l"] = {
+						"open",
+						nowait = true,
+					},
 				},
 			},
 		},
