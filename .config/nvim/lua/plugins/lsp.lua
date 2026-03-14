@@ -52,11 +52,7 @@ return {
 			map.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 			opts.desc = "Shsw documentation under cursor"
-			map.set("n", "K", function()
-				vim.lsp.buf.hover({
-					border = "single",
-				})
-			end, opts)
+			map.set("n", "K", "<cmd> lua vim.lsp.buf.hover({border='single'}) <cr>", opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -113,6 +109,8 @@ return {
 		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {},
+			root_dir = require("lspconfig.util").root_pattern(".git"),
 		})
 
 		lspconfig["lua_ls"].setup({
@@ -131,6 +129,54 @@ return {
 					},
 				},
 			},
+		})
+
+		-- local configs = require("lspconfig.configs")
+		-- if not configs.tsgo then
+		-- 	configs.tsgo = {
+		-- 		default_config = {
+		-- 			cmd = { "tsgo", "--lsp", "--stdio" },
+		-- 			filetypes = {
+		-- 				"javascript",
+		-- 				"javascriptreact",
+		-- 				"javascript.jsx",
+		-- 				"typescript",
+		-- 				"typescriptreact",
+		-- 				"typescript.tsx",
+		-- 			},
+		-- 			root_dir = lspconfig.util.root_pattern(
+		-- 				"tsconfig.json",
+		-- 				"jsconfig.json",
+		-- 				"package.json",
+		-- 				".git",
+		-- 				"tsconfig.base.json"
+		-- 			),
+		-- 			settings = {},
+		-- 		},
+		-- 	}
+		-- end
+		--
+		-- lspconfig.tsgo.setup({
+		-- 	on_attach = function(client, bufnr)
+		-- 		-- disable_formatting(client)
+		-- 		on_attach(client, bufnr)
+		-- 	end,
+		-- 	capabilities = capabilities,
+		-- })
+
+		-- Disable semantic tokens for all LSP clients
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+				if client and client.server_capabilities.semanticTokensProvider then
+					client.server_capabilities.semanticTokensProvider = nil
+				end
+			end,
+		})
+		
+		lspconfig["gh_actions_ls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }
