@@ -5,10 +5,11 @@ vim.opt.cursorline = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.cmdheight = 1
+vim.opt.shortmess = "ltTOCFI" -- default + don't show welcome screen
 
 vim.opt.fixendofline = false
 
-vim.opt.clipboard = "unnamedplus" -- "unnamedplus" might be slow on WSL
+vim.opt.clipboard = "" -- "unnamedplus" slow on WSL
 
 vim.opt.list = true
 local space = " "
@@ -58,8 +59,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.diagnostic.config({
 	jump = { float = true },
 	float = {
-		focusable = true,
-		border = "single",
+		border = "rounded",
 	},
 	signs = {
 		text = {
