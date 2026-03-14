@@ -29,15 +29,7 @@ map.set("n", "<leader>wL", "<C-w>L", opts) -- right
 map.set("n", "<leader>wc", "<cmd> close <cr>", opts) -- quit file but not delete buffer
 
 -- Focus on current buffer
-map.set("n", "<leader>wf", function()
-	Focus = not Focus
-	print("Focus on buffer:", Focus)
-	if Focus then
-		vim.cmd("resize | vertical resize")
-	else
-		vim.cmd("wincmd =")
-	end
-end)
+map.set("n", "<leader>wf", "<cmd> lua Snacks.zen.zoom() <cr>", opts)
 
 -- Resizing
 map.set("n", "<leader>w<", "<cmd> vertical resize -4 <cr>", opts) -- width -4
@@ -45,12 +37,12 @@ map.set("n", "<leader>w>", "<cmd> vertical resize +4 <cr>", opts) -- width +4
 map.set("n", "<leader>w-", "<cmd> resize -2 <cr>", opts) -- height -2
 map.set("n", "<leader>w+", "<cmd> resize +2 <cr>", opts) -- height +2
 
-
 -- GIT
 map.set("n", "<leader>gk", "<cmd> Gitsigns prev_hunk <cr>", opts) -- previous hunk
 map.set("n", "<leader>gj", "<cmd> Gitsigns next_hunk <cr>", opts) -- next hunk
 map.set("n", "<leader>gah", "<cmd> Gitsigns stage_hunk <cr>", opts) -- stage selected hunk
 map.set("n", "<leader>gab", "<cmd> Gitsigns stage_buffer <cr>", opts) -- stage selected buffer
+map.set("n", "<leader>gb", "<cmd> lua Snacks.picker.git_branches() <cr>", opts) -- git branches
 
 -- TELESCOPE
 map.set("n", "<leader>.", "<cmd> Telescope find_files <cr>", opts) -- find all files from cwd
@@ -66,17 +58,20 @@ map.set("n", "<leader>ff", "<cmd> Telescope live_grep previewer=false <cr>", opt
 map.set(
 	"n",
 	"<leader>fG",
-	"<cmd> lua require('telescope.builtin').live_grep( { cwd = vim.fn.expand('%:p:h')} ) <cr>",
+	"<cmd> lua require('telescope.builtin').live_grep( { cwd = vim.fn.expand('%:p:h') }) <cr>",
 	opts
 ) -- grep string in cwd
-map.set("n", "<leader>bg", "<cmd> Telescope current_buffer_fuzzy_find <cr>", opts) -- grep string in current file
+map.set("n", "<leader>ffg", "<cmd> Telescope current_buffer_fuzzy_find case_mode=ignore_case <cr>", opts) -- grep string in current buffer
 map.set("n", "<leader>fr", "<cmd> Telescope oldfiles <cr>", opts) -- find recent file
-map.set("n", "<leader>/", "<cmd> Telescope git_files <cr>", opts) -- find recent file
+map.set("n", "<leader>/", "<cmd> Telescope git_files <cr>", opts) -- find git files
+map.set("n", "<leader>g.", "<cmd> Telescope git_status <cr>", opts) -- git statuses
 
--- NVIM TREE
+-- NEO TREE
 
-map.set("n", "<leader>e", "<cmd> Neotree toggle <cr>", opts) -- toggle neo tree
-map.set("n", "<leader>E", "<cmd> Neotree position=current <cr>", opts) -- toggle neo tree netrw
+map.set("n", "<leader>e", "<cmd> Neotree toggle reveal <cr>", opts) -- toggle neotree
+map.set("n", "<leader>E", "<cmd> Neotree position=current <cr>", opts) -- toggle neotree
+-- map.set("n", "<leader>e", "<cmd> lua Snacks.picker.explorer({follow_file = true}) <cr>", opts) -- tree snacks
+-- map.set("n", "<leader>E", "<cmd> lua Snacks.picker.explorer({follow_file = false}) <cr>", opts) -- tree snacks current file
 
 ---- BUFFERS
 map.set("n", "<leader>bk", function()
@@ -99,7 +94,22 @@ map.set("n", "<leader><Tab>d", "<cmd> tabclose <cr>", opts) -- delete tab
 map.set("n", "<leader><Tab>h", "<cmd> tabprevious <cr>", opts) -- previous tab
 map.set("n", "<leader><Tab>l", "<cmd> tabnext <cr>", opts) -- next tab
 map.set("n", "<leader><Tab>n", "<cmd> tabnew <cr>", opts) -- new tab
+
+map.set("n", "<leader><Tab>1", "<cmd> tabn 1 <cr>", opts) -- tab 1
+map.set("n", "<leader><Tab>2", "<cmd> tabn 2 <cr>", opts) -- tab 2
+map.set("n", "<leader><Tab>3", "<cmd> tabn 3 <cr>", opts) -- tab 3
+map.set("n", "<leader><Tab>4", "<cmd> tabn 4 <cr>", opts) -- tab 4
+map.set("n", "<leader><Tab>5", "<cmd> tabn 5 <cr>", opts) -- tab 5
+map.set("n", "<leader><Tab>6", "<cmd> tabn 6 <cr>", opts) -- tab 6
+
+map.set("n", "<M-i>", ":tabprevious<CR>", opts)
+map.set("n", "<M-o>", ":tabnext<CR>", opts)
+
 map.set("n", "<leader><Tab><Tab>", "<cmd> tabs <cr>", opts) -- show all tabs
+map.set("n", "<leader><Tab>r", function()
+	local name = vim.fn.input("Tab name: ", "")
+	vim.cmd("TabRename " .. name)
+end)
 
 ----- FILES
 -- Opens a new file with given name on the current file's directory
@@ -113,6 +123,11 @@ end)
 map.set("n", "<leader>fs", "<cmd> w <cr>", opts) -- save file
 map.set("n", "<leader>qq", "<cmd> q <cr>", opts) -- quit nvim when in last buffer
 map.set("n", "<esc>", "<cmd> noh <cr>", opts) -- clears search
+map.set("n", "<C-g>", function()
+	local file_name = vim.fn.expand("%")
+	vim.fn.setreg("+", file_name)
+	print(file_name)
+end, opts) -- copy relative file path to clipboard
 
 ---- CONCEALING
 map.set("n", "<leader>tl", function()
