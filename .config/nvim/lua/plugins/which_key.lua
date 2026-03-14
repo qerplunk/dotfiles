@@ -10,7 +10,7 @@ return {
 		wk.setup({
 			preset = "classic",
 			win = {
-				border = "single",
+				border = "rounded",
 			},
 			filter = function(mapping)
 				-- exclude mappings without a description
@@ -40,7 +40,6 @@ return {
 			{ "<leader>b", group = "Buffer" },
 			{ "<leader>bb", desc = "Go to recent buffer" },
 			{ "<leader>bf", desc = "Format buffer" },
-			{ "<leader>bg", desc = "Grep current buffer" },
 			{ "<leader>bk", desc = "Delete current buffer" },
 			{ "<leader>bn", desc = "Next buffer" },
 			{ "<leader>bp", desc = "Previous buffer" },
@@ -56,12 +55,12 @@ return {
 			{ "<leader>e", desc = "Neo Tree" },
 
 			{ "<leader>E", group = "Neo Tree Netrw" },
-			{ "<leader>E", desc = "Neo Tree Netwr" },
+			{ "<leader>E", desc = "Neo Tree Netrw" },
 
 			{ "<leader>f", group = "File" },
-			{ "<leader>ff", desc = "Grep find no preview" },
 			{ "<leader>fg", desc = "Grep find" },
-			{ "<leader>fG", desc = "Grep find cwd" },
+			{ "<leader>ffg", desc = "Grep file find" },
+			{ "<leader>fG", desc = "Grep cwd find" },
 			{ "<leader>fn", desc = "New file" },
 			{ "<leader>fr", desc = "Find recent file" },
 			{ "<leader>fs", desc = "Save file" },
@@ -71,14 +70,13 @@ return {
 			{ "<leader>gj", desc = "Git hunk next" },
 			{ "<leader>gah", desc = "Git stage hunk" },
 			{ "<leader>gab", desc = "Git stage buffer" },
+			{ "<leader>g.", desc = "Telescope git staged" },
 
 			{ "<leader>q", group = "Quit" },
 			{ "<leader>qq", desc = "Quit nvim" },
 
 			{ "<leader>t", group = "Toggle" },
 			{ "<leader>tL", desc = "conceal on cursor line" },
-			{ "<leader>tc", desc = "cmp" },
-			{ "<leader>td", desc = "Telescope diagnostics" },
 			{ "<leader>tl", desc = "conceal text" },
 
 			{ "<leader>w", group = "Window" },
